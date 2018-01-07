@@ -5,4 +5,5 @@ RUN apk update && apk upgrade && \
  bundle install --jobs 20 --retry 5 && \
  apk del build-deps
 RUN pip install rq-dashboard==0.3.10
+EXPOSE 9181
 ENTRYPOINT ["rq-dashboard"]
