@@ -1,3 +1,8 @@
-FROM python:2.7.11-alpine
+FROM python:alpine:3.7
+RUN apk update && apk upgrade && \
+ apk add --no-cache $RUBY_PACKAGES && \
+ apk add --no-cache --virtual build-deps $BUILD_PACKAGES && \
+ bundle install --jobs 20 --retry 5 && \
+ apk del build-deps
 RUN pip install rq-dashboard==0.3.10
 ENTRYPOINT ["rq-dashboard"]
