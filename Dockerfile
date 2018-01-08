@@ -1,4 +1,4 @@
-FROM python:alpine:3.7
+FROM python:3.6.4-alpine3.7
 RUN apk update && apk upgrade && \
  apk add --no-cache $RUBY_PACKAGES && \
  apk add --no-cache --virtual build-deps $BUILD_PACKAGES && \
